@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      - SQLITE_DB_PATH=/var/www/html/html/db/rezensionen.sqlite
+    volumes:
+      - .:/var/www/html
+    restart: unless-stopped
